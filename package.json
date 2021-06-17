@@ -5,8 +5,19 @@
 	"type": "module",
 	"scripts": {
 		"start": "yarn --cwd cloud-backend start-prod",
-		"deploy": "yarn build:client && yarn replace-build && git add . && git commit -m 'build' && git push heroku preheroku:master",
 		"build:client": "yarn --cwd cloud-front build",
-		"replace-build": "node ./replace.js"
+		"heroku-push": "git add . && git commit -m 'build' && git push heroku preheroku:master",
+		"--": "---",
+		"deploy": "yarn prepare-build && yarn heroku-push",
+		"prepare-build": "yarn build:client && yarn replace-build",
+		"replace-build": "yarn remove-build && yarn place-build",
+		"remove-build": "rm -rf cloud-front-build",
+		"place-build": "cp -rf ./cloud-front/build ./cloud-front-build",
+		"---": "---",
+		"deploy-win": "yarn prepare-build-win && yarn heroku-push",
+		"prepare-build-win": "yarn build:client && yarn replace-build-win",
+		"replace-build-win": "yarn remove-build-win && yarn place-build-win",
+		"remove-build-win": "del /f /s /q \"./cloud-front-build\"",
+		"place-build-win": "Xcopy \"./cloud-front/build\" \"./cloud-front-build\" /E /H /C /I"
 	}
 }
