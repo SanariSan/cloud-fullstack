@@ -2,12 +2,9 @@
 	"name": "cloud-fullstack",
 	"version": "1.0.0",
 	"license": "MIT",
-	"engines": {
-		"node": "14.16.1"
-	},
 	"scripts": {
 		"start": "yarn --cwd cloud-backend start-prod",
-		"deploy": "yarn build:client && yarn replace-build && git add . && git commit -m 'build' && git push heroku master",
+		"deploy": "yarn build:client && yarn replace-build && git add . && git commit -m 'build' && git push heroku preheroku:master",
 		"build:client": "yarn --cwd cloud-front build",
 		"replace-build": "yarn remove-build && yarn place-build",
 		"remove-build": "rm -rf cloud-front-build",
