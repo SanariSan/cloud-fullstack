@@ -4,7 +4,8 @@
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
-		"start": "yarn --cwd cloud-backend start-prod",
+		"start": "cp ./node_modules ./cloud-backend/node_modules yarn --cwd cloud-backend start-prod",
+		"start-win": "Xcopy \"./node_modules\" \"./cloud-backend/node_modules\" /E /H /C /I && yarn --cwd cloud-backend start-prod",
 		"build:client": "yarn --cwd cloud-front build",
 		"heroku-push": "git add . && git commit -m 'build' && git push heroku preheroku:master",
 		"--": "---",
@@ -19,5 +20,30 @@
 		"replace-build-win": "yarn remove-build-win && yarn place-build-win",
 		"remove-build-win": "del /f /s /q \"./cloud-front-build\"",
 		"place-build-win": "Xcopy \"./cloud-front/build\" \"./cloud-front-build\" /E /H /C /I"
+	},
+	"dependencies": {
+		"@types/bcrypt": "^5.0.0",
+		"@types/config": "^0.0.38",
+		"@types/cors": "^2.8.10",
+		"@types/express": "^4.17.12",
+		"@types/jsonwebtoken": "^8.5.1",
+		"@types/node": "^15.12.2",
+		"axios": "^0.21.1",
+		"bcrypt": "^5.0.1",
+		"bcryptjs": "^2.4.3",
+		"cors": "^2.8.5",
+		"cross-env": "^7.0.3",
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"express-validator": "^6.10.1",
+		"joi": "^17.4.0",
+		"jsonwebtoken": "^8.5.1",
+		"nanoid": "^3.1.22",
+		"pg": "^8.6.0",
+		"reflect-metadata": "^0.1.13",
+		"typeorm": "^0.2.32",
+		"typescript": "^4.2.4",
+		"winston": "^3.3.3",
+		"winston-daily-rotate-file": "^4.5.5"
 	}
 }
