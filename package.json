@@ -4,7 +4,7 @@
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
-		"start": "cp ./node_modules ./cloud-backend/node_modules yarn --cwd cloud-backend start-prod",
+		"start": "cp -rf ./node_modules ./cloud-backend/node_modules && yarn --cwd cloud-backend start-prod",
 		"start-win": "Xcopy \"./node_modules\" \"./cloud-backend/node_modules\" /E /H /C /I && yarn --cwd cloud-backend start-prod",
 		"build:client": "yarn --cwd cloud-front build",
 		"heroku-push": "git add . && git commit -m 'build' && git push heroku preheroku:master",
