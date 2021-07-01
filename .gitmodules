@@ -1,8 +1,8 @@
 [submodule "cloud-backend"]
 	path = cloud-backend
-	url = https://github.com/SanariSan/cloud-backend
+	url = https://github.com/SanariSan/cloud-backend.git
 	branch = preheroku
 [submodule "cloud-front"]
 	path = cloud-front
-	url = https://github.com/SanariSan/cloud-front
+	url = https://github.com/SanariSan/cloud-front.git
 	branch = master
