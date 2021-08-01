@@ -7,7 +7,7 @@
 		"start": "cp -rf ./node_modules ./cloud-backend/node_modules && yarn --cwd cloud-backend start-prod-linux",
 		"start-win": "Xcopy \"./node_modules\" \"./cloud-backend/node_modules\" /E /H /C /I && yarn --cwd cloud-backend start-prod-win",
 		"build:client": "yarn --cwd cloud-front build",
-		"heroku-push": "git add . && git commit -m 'build' && git push heroku +master",
+		"heroku-push": "git push heroku +master",
 		"--": "---",
 		"deploy-linux": "yarn prepare-build-linux && yarn heroku-push",
 		"prepare-build-linux": "yarn build:client && yarn replace-build-linux",
