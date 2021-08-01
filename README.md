@@ -52,24 +52,30 @@ to get db connection string and set config vars this way
 
 5. Now you can run it on linux
 
-`yarn deploy`
+`yarn deploy-linux`
 
 Or on windows
 
 `yarn deploy-win`
 
+---
+
+All futher deploys you just repeat step 2 + step 5
+
+---
+
 The script will get all the modules for front part, compile the bundle and copy it to the directory of this repo.
 Then it will push build and backend part to heroku/
 
-\*Note that branch which is being pushed named preheroku (could be changed in package.json)
-\*Also note the names of submodules branches, which are master for front and preheroku for back
+\*Note that branch which is being pushed named master (could be changed in package.json)
+\*Names of submodules branches are master for both front and backend (could be changed in .gitmodules)
 
-After files being pushed, heroku will get all back modules into THIS directory and then COPY them to back directory during launch stage
+After files being pushed, heroku will download all backend modules into THIS directory with yarn install and then COPY them to backend directory during launch stage
 \*Unfortunately I couldn't find the way to install modules inside submodule directory during push process, so we are getting it here, in deploy repo, then copying to submodule repo
 
 ---
 
-Finally, after modules done installing and copying, back part will start on randomly assigned port, static front going to be hosted.
+Finally, after modules done installing and copying, backend part will start on randomly assigned port, static front going to be hosted.
 
 To check server status just run
 
@@ -85,5 +91,4 @@ To run it again(to build againg)
 
 \*IMPORTANT
 
-In backend part, `/src/app.ts` file contains db initialize operation, where you define either drop db on build or not, please take that into account
-Later will be moved to env variable, but for now it's like that.
+In backend part, `.env` file contains db initialize parameter, where you define either drop db on app start or not, please take that into account
