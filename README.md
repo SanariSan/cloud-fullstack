@@ -1,10 +1,40 @@
+# Deployment repo
+
 This repository is meant to be one-click-deployment to heroku solution for separate parts of project.
 In this case, front and back parts of project are different repos.
 Using git submodule and package.json scripts we are able to easily compile and deploy the project.
 
 ---
 
-How to use:
+## ![Server](https://github.com/SanariSan/cloud-backend)
+
+1. Express
+2. PostgreSQL
+3. TypeORM
+4. Winston
+5. Typescript
+
+## ![Front-end](https://github.com/SanariSan/cloud-front)
+
+1. React
+2. SASS
+3. Bootstrap
+4. Semantic-UI
+5. HTML
+6. CSS
+7. Typescript
+
+## Deployment repo
+
+1. Heroku
+
+## Database:
+
+![erd](https://github.com/SanariSan/cloud-fullstack/blob/assets/db.png?raw=true)
+
+---
+
+## How to use:
 
 0. clone repo with
 
