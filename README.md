@@ -1,3 +1,9 @@
+#### Heroku disabled free tier, so I had to move project hosting to private vps and wrap parts into containers.
+#### This repo is not used anymore and left here for archive and overall description.
+#### CI/CD implemented using github actions right within each of [frontend](https://github.com/SanariSan/cloud-front) and [backend](https://github.com/SanariSan/cloud-backend) repos, check it out!
+
+---
+
 # Deployment repo
 
 This repository is meant to be one-click-deployment to heroku solution for separate parts of project.
